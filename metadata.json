@@ -1,0 +1,5 @@
+{
+  "name": "SumMatch: Number Puzzle",
+  "description": "A mathematical elimination puzzle game where you sum numbers to reach a target. Features Classic and Time modes.",
+  "requestFramePermissions": []
+}
