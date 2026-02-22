@@ -207,7 +207,7 @@ export default function App() {
             <h1 className="text-6xl font-bold tracking-tighter text-emerald-500 italic font-mono">
               SUM<span className="text-zinc-100">MATCH</span>
             </h1>
-            <p className="text-zinc-400 text-sm uppercase tracking-[0.2em]">Mathematical Elimination</p>
+            <p className="text-zinc-400 text-sm uppercase tracking-[0.2em]">数学求和消除</p>
           </div>
 
           <div className="grid gap-4">
@@ -216,8 +216,8 @@ export default function App() {
               className="group relative flex items-center justify-between p-6 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-emerald-500/50 transition-all text-left"
             >
               <div>
-                <h3 className="text-xl font-bold text-zinc-100">Classic Mode</h3>
-                <p className="text-zinc-500 text-sm">New row after every success. Survival of the fastest.</p>
+                <h3 className="text-xl font-bold text-zinc-100">经典模式</h3>
+                <p className="text-zinc-500 text-sm">每次成功后新增一行。挑战生存极限。</p>
               </div>
               <Zap className="w-8 h-8 text-emerald-500 group-hover:scale-110 transition-transform" />
             </button>
@@ -227,8 +227,8 @@ export default function App() {
               className="group relative flex items-center justify-between p-6 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-emerald-500/50 transition-all text-left"
             >
               <div>
-                <h3 className="text-xl font-bold text-zinc-100">Time Mode</h3>
-                <p className="text-zinc-500 text-sm">New row every {TIME_LIMIT} seconds. Don't let them stack!</p>
+                <h3 className="text-xl font-bold text-zinc-100">计时模式</h3>
+                <p className="text-zinc-500 text-sm">每 {TIME_LIMIT} 秒新增一行。手速要快！</p>
               </div>
               <Timer className="w-8 h-8 text-emerald-500 group-hover:scale-110 transition-transform" />
             </button>
@@ -237,7 +237,7 @@ export default function App() {
           <div className="pt-8 border-t border-zinc-900">
             <div className="flex items-center justify-center gap-2 text-zinc-500">
               <Trophy className="w-4 h-4" />
-              <span className="text-xs uppercase tracking-widest">High Score: {highScore}</span>
+              <span className="text-xs uppercase tracking-widest">最高分: {highScore}</span>
             </div>
           </div>
         </motion.div>
@@ -258,7 +258,7 @@ export default function App() {
         
         <div className="text-center">
           <div className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-1">
-            {mode === GameMode.CLASSIC ? 'Classic Survival' : 'Time Attack'}
+            {mode === GameMode.CLASSIC ? '经典生存' : '计时挑战'}
           </div>
           <div className="text-2xl font-mono font-bold text-zinc-100">
             {score.toString().padStart(6, '0')}
@@ -287,7 +287,7 @@ export default function App() {
             )}
           </div>
           
-          <div className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">Target Sum</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2">目标数字</div>
           <motion.div 
             key={targetSum}
             initial={{ scale: 0.8, opacity: 0 }}
@@ -299,14 +299,14 @@ export default function App() {
           
           <div className="mt-4 flex items-center gap-4">
             <div className="flex flex-col items-center">
-              <span className="text-[10px] uppercase text-zinc-600">Current</span>
+              <span className="text-[10px] uppercase text-zinc-600">当前和</span>
               <span className={`text-xl font-mono font-bold ${currentSum > targetSum ? 'text-red-500' : 'text-zinc-300'}`}>
                 {currentSum}
               </span>
             </div>
             <div className="w-px h-8 bg-zinc-800" />
             <div className="flex flex-col items-center">
-              <span className="text-[10px] uppercase text-zinc-600">Selected</span>
+              <span className="text-[10px] uppercase text-zinc-600">已选数</span>
               <span className="text-xl font-mono font-bold text-zinc-300">
                 {selectedIds.length}
               </span>
@@ -355,12 +355,12 @@ export default function App() {
               className="absolute inset-0 z-10 bg-zinc-950/80 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center p-6 text-center"
             >
               <Pause className="w-16 h-16 text-emerald-500 mb-4" />
-              <h2 className="text-3xl font-bold mb-6">Game Paused</h2>
+              <h2 className="text-3xl font-bold mb-6">游戏暂停</h2>
               <button 
                 onClick={() => setIsPaused(false)}
                 className="w-full py-4 bg-emerald-500 text-emerald-950 font-bold rounded-xl hover:bg-emerald-400 transition-colors"
               >
-                Resume Game
+                继续游戏
               </button>
             </motion.div>
           )}
@@ -375,16 +375,16 @@ export default function App() {
               className="absolute inset-0 z-20 bg-zinc-950/95 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center p-8 text-center"
             >
               <AlertCircle className="w-16 h-16 text-red-500 mb-4" />
-              <h2 className="text-4xl font-bold mb-2">Game Over</h2>
-              <p className="text-zinc-500 mb-8">The numbers reached the top!</p>
+              <h2 className="text-4xl font-bold mb-2">游戏结束</h2>
+              <p className="text-zinc-500 mb-8">方块已经堆到顶部了！</p>
               
               <div className="w-full space-y-4 mb-8">
                 <div className="flex justify-between items-center p-4 bg-zinc-900 rounded-xl border border-zinc-800">
-                  <span className="text-zinc-500 uppercase text-xs tracking-widest">Final Score</span>
+                  <span className="text-zinc-500 uppercase text-xs tracking-widest">最终得分</span>
                   <span className="text-2xl font-mono font-bold text-emerald-500">{score}</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-zinc-900 rounded-xl border border-zinc-800">
-                  <span className="text-zinc-500 uppercase text-xs tracking-widest">High Score</span>
+                  <span className="text-zinc-500 uppercase text-xs tracking-widest">最高分</span>
                   <span className="text-2xl font-mono font-bold text-zinc-300">{highScore}</span>
                 </div>
               </div>
@@ -395,14 +395,14 @@ export default function App() {
                   className="flex items-center justify-center gap-2 py-4 bg-emerald-500 text-emerald-950 font-bold rounded-xl hover:bg-emerald-400 transition-colors"
                 >
                   <RotateCcw className="w-5 h-5" />
-                  Retry
+                  重试
                 </button>
                 <button 
                   onClick={() => setMode(null)}
                   className="flex items-center justify-center gap-2 py-4 bg-zinc-800 text-zinc-100 font-bold rounded-xl hover:bg-zinc-700 transition-colors"
                 >
                   <Home className="w-5 h-5" />
-                  Menu
+                  菜单
                 </button>
               </div>
             </motion.div>
@@ -413,8 +413,8 @@ export default function App() {
       {/* Instructions */}
       <div className="mt-8 text-center max-w-xs">
         <p className="text-zinc-600 text-xs leading-relaxed uppercase tracking-wider">
-          Select numbers to reach the target sum. <br />
-          Don't let the blocks reach the top!
+          选择数字使它们的总和等于目标数字。 <br />
+          不要让方块堆积到顶部！
         </p>
       </div>
     </div>

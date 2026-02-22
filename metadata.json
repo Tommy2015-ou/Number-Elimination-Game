@@ -1,5 +1,5 @@
 {
-  "name": "SumMatch: Number Puzzle",
-  "description": "A mathematical elimination puzzle game where you sum numbers to reach a target. Features Classic and Time modes.",
+  "name": "数字求和消除",
+  "description": "一款数学求和消除益智游戏。点击方块使数字之和等于目标数字。包含经典模式和计时模式。",
   "requestFramePermissions": []
 }
